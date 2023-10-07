@@ -3,5 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello from the Golang!!")
+
+	// defining the variables
+
+	firstName := "Yaten"
+	fmt.Println("My firstName is", firstName)
 }
