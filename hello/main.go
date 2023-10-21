@@ -5,6 +5,8 @@ import (
 	"log"
 )
 
+var s = "seven"
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -13,6 +15,8 @@ func main() {
 	var whatToSay string
 	var i int
 
+	var s2 = "six"
+
 
 	whatToSay = "Good bye!!, cruel world"
 
@@ -20,6 +24,9 @@ func main() {
 
 	i = 100
 	fmt.Println("i is set to", i)
+
+	log.Println("s is ", s)
+	log.Println("s2 is ", s2)
 
 	// shorthand syntax of variable declration
 	whatWasSaid, otherThingSaid := saySomething()
@@ -34,6 +41,8 @@ func main() {
 
 	log.Println("After the func call myStr is set to", myStr)
 
+	saySomethingAgain("calling saySomethingAgain")
+
 }
 
 // syntax of function i.e this function will going to return a `string`
@@ -46,4 +55,11 @@ func saySomething() (string, string) {
 func changeUsingPointer(s *string) {
 	newValue := "White"
 	*s = newValue
+}
+
+// if i pass same param as `global variable` so when i will call this function it
+// will refer to that variable.
+func saySomethingAgain(s3 string) (string, string) {
+	log.Println("s from saySomethingAgain is ", s)
+	return s, "returned";
 }
