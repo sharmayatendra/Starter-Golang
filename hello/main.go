@@ -14,6 +14,15 @@ type User struct {
 	BirthDate time.Time
 }
 
+// Receivers example:
+type myStruct struct {
+	FirstName string;
+}
+
+func (m *myStruct) printFirstName() string {
+	return m.FirstName;
+}
+
 // defining variable like this only available it only in this package
 var spcl string
 
@@ -28,5 +37,15 @@ func main() {
 		LastName: "Doe",
 	}
 
+	var myVar myStruct;
+	myVar.FirstName = "Livo"
+
+	myVar2 := myStruct {
+		FirstName: "Hero",
+	}
+
 	log.Println(user.FirstName, user.LastName, user.Age, user.PhoneNumber, user.BirthDate)
+
+	log.Println("myVar is ", myVar.printFirstName())
+	log.Println("myVar2 is ", myVar2.printFirstName())
 }
