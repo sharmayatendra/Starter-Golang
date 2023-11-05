@@ -22,8 +22,17 @@ func main() {
 		log.Println("myNum is lesser than 100")
 	}
 
+	myVar := "CA"
 
+	switch myVar {
+	case "CAR":
+		log.Println("This is the car here")
 
+	case "BIKE":
+		log.Println("This is the bike here")
 
+	default:
+		log.Println("This is something else other than bike and car")
+	}
 
 }
