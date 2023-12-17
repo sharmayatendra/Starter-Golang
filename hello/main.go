@@ -5,16 +5,27 @@ import (
 	"net/http"
 )
 
+const portNumber = ":8080"
+
+func Home(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "This is the home page")
+}
+
+func About(w http.ResponseWriter, r *http.Request) {
+	sum := addValues(5, 10);
+
+    fmt.Fprintf(w, "The sum of 5 & 10 is:: %d", sum)
+}
+
+func addValues(x,y int) (int) {
+	return x + y
+}
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		n, err := fmt.Fprintf(w , "Hello, world")
+	http.HandleFunc("/", Home)
+	http.HandleFunc("/about", About)
 
-		if err != nil {
-			fmt.Println(err)
-
-		}
-		fmt.Println(fmt.Sprintf("Number of bytes written: %d", n))
-	})
-	_ = http.ListenAndServe(":8080", nil)
+	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
+	
+	_ = http.ListenAndServe(portNumber, nil)
 }
